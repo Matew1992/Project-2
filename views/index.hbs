@@ -1,2 +1,45 @@
 <h1>{{appTitle}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
+
+{{!-- views/auth/login.hbs --}}
+
+<div id="form">
+  <h2>Login</h2>
+
+  <form action="/login" method="POST">
+
+    <label> Username
+      <input type="username" name="username" placeholder="ironhacker" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button type="submit">Login</button>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
+
+  <h2>Register</h2>
+
+  <form action="/register" method="POST">
+
+    {{!-- <label> Username
+      <input type="username" name="username" placeholder="ironhacker" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="********" />
+    </label> --}}
+
+    <button type="submit">Register</button>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
