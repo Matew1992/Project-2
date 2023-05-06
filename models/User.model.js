@@ -31,6 +31,10 @@ const userSchema = new Schema(
     }, 
     hiring: {
       type: Boolean
+    },
+    
+    position: {
+      type: String
     }
   },
   {
