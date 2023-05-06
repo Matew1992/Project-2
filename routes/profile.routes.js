@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  res.render("profile");
+  res.render("auth/profile");
 });
 
 router.post("/", (req, res, next) => {
-    res.render("profile");
+    res.render("auth/profile");
   });
 
 module.exports = router;
