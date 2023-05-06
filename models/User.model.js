@@ -19,6 +19,18 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    }, 
+    name: {
+      type: String
+    },     
+    location: {
+      type: String
+    }, 
+    company: {
+      type: String
+    }, 
+    hiring: {
+      type: Boolean
     }
   },
   {
