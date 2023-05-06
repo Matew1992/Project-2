@@ -14,6 +14,10 @@ router.post("/login", (req, res, next) => {
   res.render("auth/mydetails");
 });
 
+router.get("/home", (req, res, next) => {
+  res.render("auth/home");
+});
+
 router.get("/register", (req, res, next) => {
   res.render("auth/register");
 });

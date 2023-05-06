@@ -1,13 +1,4 @@
-<h1>{{appTitle}} 🚀</h1>
-
-<div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#profile">Profile</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
-
-<p>Welcome Ironhacker!</p>
+<h1>{{appTitle}} </h1>
 
 {{!-- views/auth/login.hbs --}}
 
@@ -17,7 +8,7 @@
   <form action="/login" method="POST">
 
     <label> Email
-      <input type="Email" name="Email" placeholder="ironhacker" />
+      <input type="Email" name="Email" placeholder="email@gmail.com" />
     </label>
 
     <label>Password
@@ -35,14 +26,6 @@
   <h2>Register</h2>
 
   <form action="/register" method="POST">
-
-    {{!-- <label> Username
-      <input type="username" name="username" placeholder="ironhacker" />
-    </label>
-
-    <label>Password
-      <input type="password" name="password" placeholder="********" />
-    </label> --}}
 
     <button type="submit">Register</button>
 
