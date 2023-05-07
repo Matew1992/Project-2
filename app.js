@@ -28,14 +28,14 @@ app.locals.appTitle = `${capitalize(projectName)}`;
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
-const profileRoutes = require("./routes/profile.routes");
-app.use("/", profileRoutes);
+// const profileRoutes = require("./routes/profile.routes");
+// app.use("/", profileRoutes);
 
-const registerRoutes = require("./routes/register.routes");
-app.use("/", registerRoutes);
+// const registerRoutes = require("./routes/register.routes");
+// app.use("/", registerRoutes);
 
-const postRoutes = require("./routes/post.routes");
-app.use("/", postRoutes);
+// const postRoutes = require("./routes/post.routes");
+// app.use("/", postRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);

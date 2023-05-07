@@ -1,6 +1,4 @@
-// const saltRounds = 10;
 const mongoose = require('mongoose');
-
 const router = require("express").Router();
 const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 
@@ -9,30 +7,11 @@ const bcryptjs = require("bcryptjs");
 
 require("../db");
 
-router.get("/register", isLoggedOut, (req, res) => {
-  res.render("auth/register");
-});
-
-router.post("/register", async (req, res,) => {
-  console.log(req.body);
-
-  const salt = await bcryptjs.genSalt(12);
-  const hash = await bcryptjs.hash(req.body.password, salt);
-  const user = new User({ email: req.body.email, password: hash });
-  await user.save();
-  // change this to be redicted somewhere instead of this message 
-  res.send("signed up");
-  console.log(hash);
-  console.log(user);
-});
-
-
-
-router.get("/", isLoggedOut, (req, res) => {
+router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("index");
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
@@ -50,23 +29,39 @@ router.post("/", async (req, res, next) => {
       email: user.email,
     };
 
-    res.redirect("/profile");
+    res.redirect("/auth/profile");
   } catch (err) {
     console.log(err);
     next(err);
   }
 });
 
-router.get("/home", isLoggedIn, (req, res) => {
+router.get("/home", isLoggedIn, (req, res, next) => {
   res.render("auth/home");
 });
 
-router.get("/home", isLoggedOut, (req, res) => {
+router.get("/home", isLoggedOut, (req, res, next) => {
     res.render("index");
   });
 
-router.get("/post", isLoggedIn, (req, res) => {
+router.get("/post", isLoggedIn, (req, res, next) => {
   res.render("auth/post");
 });
+
+router.get("/post", isLoggedOut, (req, res, next) => {
+  res.render("index");
+});
+
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  res.render("auth/profile");
+});
+
+router.get("/profile", isLoggedOut, (req, res, next) => {
+  res.render("index");
+});
+
+router.post("/profile", isLoggedIn, (req, res, next) => {
+    res.render("auth/profile");
+  });
 
 module.exports = router;
