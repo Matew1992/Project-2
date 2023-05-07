@@ -5,7 +5,7 @@
 <div id="form">
   <h2>Login</h2>
 
-  <form action="/profile" method="POST">
+  <form action="/login" method="POST">
 
     <label> email
       <input type="email" name="email" placeholder="email@gmail.com" />
@@ -25,8 +25,7 @@
 
   <h2>Register</h2>
 
-  <form action="/register" method="POST">
-
+  <form action="/register" method="GET">
     <button type="submit">Register</button>
 
     {{#if errorMessage}}

@@ -20,12 +20,12 @@ router.get("/home", (req, res, next) => {
   res.render("auth/home");
 });
 
-// router.get("/register", (req, res, next) => {
-//   res.render("auth/register");
-// });
+router.get("/register", (req, res, next) => {
+  res.render("auth/register");
+});
 
-// router.post("/register", (req, res, next) => {
-//   res.render("auth/register");
-// });
+router.post("/register", (req, res, next) => {
+  res.render("auth/register");
+});
 
 module.exports = router;
