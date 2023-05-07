@@ -1,6 +1,4 @@
 // const saltRounds = 10;
-// const isLoggedIn = require("../middlewares/loggedIn");
-// const isLoggedOut = require("../middlewares/loggedOut")
 const mongoose = require('mongoose');
 
 const router = require("express").Router();
@@ -15,14 +13,14 @@ router.get("/register", isLoggedOut, (req, res) => {
   res.render("auth/register");
 });
 
-router.post("/register", async (req, res, next) => {
+router.post("/register", async (req, res,) => {
   console.log(req.body);
 
   const salt = await bcryptjs.genSalt(12);
   const hash = await bcryptjs.hash(req.body.password, salt);
   const user = new User({ email: req.body.email, password: hash });
   await user.save();
-
+  // change this to be redicted somewhere instead of this message 
   res.send("signed up");
   console.log(hash);
   console.log(user);
