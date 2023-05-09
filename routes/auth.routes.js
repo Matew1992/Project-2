@@ -25,6 +25,7 @@ router.post("/login", async (req, res, next) => {
       return res.render("index", { error: "password is incorrect" });
     }
 
+    // console.log(req.session);
     req.session.user = {
       email: user.email,
     };

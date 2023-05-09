@@ -11,20 +11,12 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/profile");
-});
-
-router.post("/login", (req, res, next) => {
-  res.render("auth/profile");
-});
-
 router.get("/home", (req, res, next) => {
   res.render("auth/home");
 });
 
 router.get("/register", (req, res, next) => {
-  res.render("auth/profile");
+  res.render("register");
 });
 
 router.post("/register", async (req, res,) => {

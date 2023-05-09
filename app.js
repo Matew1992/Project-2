@@ -17,25 +17,19 @@ const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
+require('./config/session.config')(app);
 
 // default value for title local
-const capitalize = require("./utils/capitalize");
-const projectName = "Junior4Hire";
+// const capitalize = require("./utils/capitalize");
+const projectName = "IronHired";
 
-app.locals.appTitle = `${capitalize(projectName)}`;
+app.locals.appTitle = projectName;
+
+// app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
-
-// const profileRoutes = require("./routes/profile.routes");
-// app.use("/", profileRoutes);
-
-// const registerRoutes = require("./routes/register.routes");
-// app.use("/", registerRoutes);
-
-// const postRoutes = require("./routes/post.routes");
-// app.use("/", postRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
