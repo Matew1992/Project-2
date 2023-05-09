@@ -61,7 +61,21 @@ router.get("/profile", isLoggedOut, (req, res, next) => {
   res.render("index");
 });
 
-router.post("/profile", isLoggedIn, (req, res, next) => {
+router.post("/profile", isLoggedIn, async (req, res, next) => {
+
+  // use session to identify the user to be updated 
+  console.log(req.session);
+  console.log(req.body);
+  const updatedUser = await User.findOneAndUpdate({email: req.session.user.email},{
+    name: req.body.Name,     
+    location: req.body.Location, 
+    company: req.body.Company, 
+    hiring: req.body.Hiring,
+    position: req.body.Position
+  }, {new: true});
+
+  console.log("Hi", updatedUser);
+
     res.render("auth/profile");
   });
 
