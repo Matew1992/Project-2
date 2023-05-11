@@ -5,6 +5,8 @@ const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 const User = require("../models/User.model");
 const bcryptjs = require("bcryptjs");
 
+
+
 require("../db");
 
 router.get("/login", isLoggedOut, (req, res, next) => {
@@ -39,9 +41,9 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/home", isLoggedIn, async (req, res, next) => {
   try {
-    const allPosts = await User.find({hiring: "on"});
-    res.render("auth/home", { allPosts });
-    console.log({ allPosts });
+    const activePosts = await User.find({hiring: "on"});
+    res.render("auth/home", { activePosts });
+    console.log({ activePosts });
   } catch (err) {
     console.log(err);
   }
@@ -67,9 +69,27 @@ router.get("/home", isLoggedOut, (req, res, next) => {
 
 
 
-router.get("/post", isLoggedIn, (req, res, next) => {
-  res.render("auth/post");
+router.get("/post/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const onePost = await User.findById(req.params.id);
+    console.log(onePost);
+    res.render("auth/post", { onePost });
+  } catch (err) {
+    console.log(err);
+  }
 });
+
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const oneCelebrity = await CelebrityModel.findById(req.params.id);
+//     console.log(oneCelebrity);
+//     res.render("celebrities/celebrity-details", { oneCelebrity });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
+
 
 router.get("/post", isLoggedOut, (req, res, next) => {
   res.render("index");
@@ -88,7 +108,7 @@ router.post("/profile", isLoggedIn, async (req, res, next) => {
   // use session to identify the user to be updated 
   console.log(req.session);
   console.log(req.body);
-  const updatedUser = await User.findOneAndUpdate({email: req.session.user.email},{
+  const onePost = await User.findOneAndUpdate({email: req.session.user.email},{
     name: req.body.Name,     
     location: req.body.Location, 
     company: req.body.Company, 
@@ -96,9 +116,21 @@ router.post("/profile", isLoggedIn, async (req, res, next) => {
     position: req.body.Position
   }, {new: true});
 
-  console.log("Hi", updatedUser);
+  console.log("Hi", onePost);
+  
+  res.render("auth/post", { onePost });
 
-    res.render("auth/post");
+    // res.render("auth/post");
   });
+
+
+  router.get("/logout", isLoggedIn, (req, res, next) => {
+    req.session.destroy();
+    // res. clearCookie('nToken'); return res. redirect('/'); 
+      //req.logout();
+    res.redirect("/home");
+
+  });
+
 
 module.exports = router;

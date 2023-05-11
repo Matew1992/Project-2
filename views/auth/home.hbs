@@ -5,14 +5,17 @@
 <p>See more details</p>
 
 
-{{#each allPosts}}
+{{#each activePosts}}
     
     <p>Location: {{location}}</p>
-     <p>Position: {{position}}</p>
+    <p>Position: {{position}}</p>
     <p>Company: {{company}}</p>
-    <p>Your details </p>
+    <p><a href="/post/{{_id}}">See more details</a> </p>
+  
+  
+    {{!-- <p>Your details </p>
     <p>Name: {{name}}</p>
-    <p>Your contact details: {{email}}</p>
+    <p>Your contact details: {{email}}</p> --}}
     <br>
     <br>
     {{!-- <p>Is your company hiring other juniors?: {{hiring}}</p> --}}
