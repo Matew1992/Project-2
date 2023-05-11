@@ -1,5 +1,25 @@
 <link rel="stylesheet" href="">
 <h1>{{appTitle}} </h1>
 
-
 <p>This is the home page with all user's cards</p>
+<p>See more details</p>
+
+
+{{#each allPosts}}
+    
+    <p>Location: {{location}}</p>
+     <p>Position: {{position}}</p>
+    <p>Company: {{company}}</p>
+    <p>Your details </p>
+    <p>Name: {{name}}</p>
+    <p>Your contact details: {{email}}</p>
+    <br>
+    <br>
+    {{!-- <p>Is your company hiring other juniors?: {{hiring}}</p> --}}
+
+  
+   {{!-- <a href="/celebrities/{{_id}}">{{name}}</a> --}}
+
+{{/each}}
+
+

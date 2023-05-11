@@ -30,7 +30,7 @@ const userSchema = new Schema(
       type: String
     }, 
     hiring: {
-      type: Boolean
+      type: String
     },
     
     position: {

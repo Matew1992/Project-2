@@ -37,13 +37,35 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("/home", isLoggedIn, (req, res, next) => {
-  res.render("auth/home");
+router.get("/home", isLoggedIn, async (req, res, next) => {
+  try {
+    const allPosts = await User.find({hiring: "on"});
+    res.render("auth/home", { allPosts });
+    console.log({ allPosts });
+  } catch (err) {
+    console.log(err);
+  }
 });
+
+
+// router.get("/home", isLoggedIn, (req, res, next) => {
+//   res.render("auth/home");
+// });
 
 router.get("/home", isLoggedOut, (req, res, next) => {
     res.render("index");
   });
+
+  // router.get("/celebrities", async (req, res) => {
+  //   try {
+  //     const allCelebrities = await CelebrityModel.find();
+  //     res.render("celebrities/celebrities", { allCelebrities });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // });
+
+
 
 router.get("/post", isLoggedIn, (req, res, next) => {
   res.render("auth/post");
@@ -76,7 +98,7 @@ router.post("/profile", isLoggedIn, async (req, res, next) => {
 
   console.log("Hi", updatedUser);
 
-    res.render("auth/profile");
+    res.render("auth/post");
   });
 
 module.exports = router;
