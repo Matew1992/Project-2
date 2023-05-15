@@ -5,6 +5,13 @@
 <p>See more details</p>
 
 
+<form action="/search" method="POST" class="form" id="search">
+  <input type="text" id="locationInput" placeholder="Enter location" name="searchLocation" >
+  <button type="submit">Search</button>
+</form>
+
+
+
 {{#each activePosts}}
     
     <p>Location: {{location}}</p>
@@ -12,16 +19,10 @@
     <p>Company: {{company}}</p>
     <p><a href="/post/{{_id}}">See more details</a> </p>
   
-  
-    {{!-- <p>Your details </p>
-    <p>Name: {{name}}</p>
-    <p>Your contact details: {{email}}</p> --}}
-    <br>
-    <br>
-    {{!-- <p>Is your company hiring other juniors?: {{hiring}}</p> --}}
 
-  
-   {{!-- <a href="/celebrities/{{_id}}">{{name}}</a> --}}
+    <br>
+    <br>
+
 
 {{/each}}
 
