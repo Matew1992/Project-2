@@ -30,8 +30,6 @@
           <option>United Kingdom</option>
           <option>United States</option>
           <option>Remote</option>
-
-
       </select>
 
      
@@ -39,7 +37,9 @@
 
     <div class="form-class">
       <label for="Hiring">Is your company hiring other junior developers?</label>
-      <input type="checkbox" name="Hiring" id="Hiring"  value={{foundUser.hiring}} />
+      {{!-- <input type="checkbox" name="Hiring" id="Hiring"  value="{{foundUser.hiring}}" /> --}}
+      <input type="checkbox" name="UserHiring" id="UserHiring" value="on" {{#if foundUser.hiring}}checked{{/if}}>
+
     </div>
 
     <div class="form-class">
@@ -58,3 +58,26 @@
   </form>
 </div>
 
+<script>
+  // Example of prefilling a checkbox based on the "User hiring" value
+  const userHiringCheckbox = document.getElementById("UserHiring");
+  const userHiringValue = "{{foundUser.hiring}}"; // Replace with the actual value from your data
+
+  if (userHiringValue === "on") {
+    userHiringCheckbox.checked = true;
+  } else {
+    userHiringCheckbox.checked = false;
+  }
+
+
+   // Example of prefilling the dropdown based on the user location
+  const userLocation = "{{foundUser.location}}"; // Replace with the actual value from your data or template engine
+
+  const locationSelect = document.getElementById("Location");
+  for (let i = 0; i < locationSelect.options.length; i++) {
+    if (locationSelect.options[i].value === userLocation) {
+      locationSelect.selectedIndex = i;
+      break;
+    }
+  }
+</script>
