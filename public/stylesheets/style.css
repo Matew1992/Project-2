@@ -1,12 +1,62 @@
+/* // colors purple: #6200EE, turquoise: #00BCD4
+// fonts: roboto */
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: "Roboto", sans-serif;
 }
 
+
+
+
 a {
-  color: #00b7ff;
+  color: #6200EE;
+  text-decoration: none;
 }
 
 h1 {
-  color: 15px;
+  /* color: 15px; */
+}
+
+.primary-button{
+  background-color: #6200EE;
+  color: white;
+  text-decoration: none;
+  width: 390px;
+  height: 30px;
+
+}
+
+.secondary-button{
+  background-color: #00BCD4;
+  color: white;
+  text-decoration: none;
+  width: 390px;
+  height: 30px;
+
+}
+
+.loginregisterdiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.indexdivs{
+
+padding: 5px;
+}
+
+.indexinputs {
+  width: 380px;
+  height: 30px;
+
+}
+
+.indexlabels{
+  color: black;
+  size: 8px;
 }

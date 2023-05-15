@@ -1,35 +1,48 @@
 <h1>{{appTitle}} </h1>
 
-
-
-<div id="form">
-  <h2>Login</h2>
-
-  <form action="/login" method="POST">
-
-    <label> email
-      <input type="email" name="email" placeholder="email@gmail.com" />
-    </label>
-
-    <label>Password
-      <input type="password" name="password" placeholder="********" />
-    </label>
-
-    <button type="submit">Login</button>
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+<div>
+  <h3>Connect with other successful Ironhack graduates who landed jobs and gain valuable referrals for your career
+    journey. </h3>
+  <p>Graduate, Connect, Get (Iron)Hired.</p>
 </div>
 
-  <h2>Register</h2>
+<div>
+  <div class="loginregisterdiv">
+    <form action="/login" method="POST">
+      <div class="indexdivs">
+        <label  class="indexlabels">Email
+          <br>
+          <input class="indexinputs" type="email" name="email" placeholder="Enter your email" />
+        </label>
+      </div>
 
-  <form action="/register" method="GET">
-    <button type="submit">Register</button>
+      <div class="indexdivs">
+        <label class="indexlabels">Password
+          <br>
+          <input class="indexinputs" type="password" name="password" placeholder="Enter your password" />
+        </label>
+      </div>
 
-    {{#if errorMessage}}
+      <div class="indexdivs">
+        <button class="primary-button" type="submit">Log In</button>
+
+        {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+    </form>
+  </div>
+
+  <div class="indexdivs">
+    <form action="/register" method="GET">
+      <button class="secondary-button" type="submit">Not registered yet?</button>
+
+      {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+      {{/if}}
+    </form>
+     </div>
+  </div>
 </div>
+
+
+
