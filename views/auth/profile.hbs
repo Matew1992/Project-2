@@ -1,4 +1,4 @@
-<h1>{{appTitle}}</h1>
+{{!-- <h1>{{appTitle}}</h1> --}}
 
 <p>Welcome to your profile</p>
 
@@ -7,19 +7,19 @@
 
     <div class="form-class">
       <label for="Name">Your name: </label>
-      <input type="text" name="Name" id="Name" required />
+      <input type="text" name="Name" id="Name" value="{{foundUser.name}}" />
     </div>
 
     <div class="form-class">
       <label for="Company">Name of the company who hired you</label>
-      <input type="Company" name="Company" id="Company" />
+      <input type="Company" name="Company" id="Company" value="{{foundUser.company}}" />
     </div>
 
     <div class="form-class">
       <label for="Location">Where's the company based?</label>
 
       <select class="form-select" id="Location" name="Location">
-          <option>select country</option>
+          <option>select country</option>    
           <option>Germany</option>
           <option>France</option>
           <option>Portugal</option>
@@ -31,6 +31,7 @@
           <option>United States</option>
           <option>Remote</option>
 
+
       </select>
 
      
@@ -38,12 +39,12 @@
 
     <div class="form-class">
       <label for="Hiring">Is your company hiring other junior developers?</label>
-      <input type="checkbox" name="Hiring" id="Hiring" />
+      <input type="checkbox" name="Hiring" id="Hiring"  value={{foundUser.hiring}} />
     </div>
 
     <div class="form-class">
       <label for="Position">What's the open role called?</label>
-      <input type="Position" name="Position" id="Position" />
+      <input type="Position" name="Position" id="Position" value="{{foundUser.position}}" />
     </div>
 
     <div class="form-class">
@@ -56,3 +57,4 @@
 
   </form>
 </div>
+

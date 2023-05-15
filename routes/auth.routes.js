@@ -31,6 +31,7 @@ router.post("/login", async (req, res, next) => {
 
     // console.log(req.session);
     req.session.user = {
+      id: user._id, 
       email: user.email,
     };
 
@@ -69,8 +70,16 @@ router.get("/post", isLoggedOut, (req, res, next) => {
   res.render("index");
 });
 
-router.get("/profile", isLoggedIn, (req, res, next) => {
-  res.render("auth/profile");
+router.get("/profile", isLoggedIn, async (req, res, next) => {
+
+
+
+  const userId = req.session.user.id;
+  const foundUser = await User.findById(userId).populate();
+  res.render('auth/profile', { foundUser });  
+
+ 
+
 });
 
 router.get("/profile", isLoggedOut, (req, res, next) => {
