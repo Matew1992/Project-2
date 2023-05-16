@@ -26,8 +26,16 @@
       <div class="indexdivs">
         <button class="primary-button" type="submit">Log In</button>
 
-        {{#if errorMessage}}
-        <p class="error">{{errorMessage}}</p>
+        {{#if errorMessageEmail}}
+         <p class="error">{{errorMessageEmail}}</p>
+        {{/if}}
+
+         {{#if errorMessagePw}}
+         <p class="error">{{errorMessagePw}}</p>
+        {{/if}}
+
+        {{#if errorMessageRegister}}
+         <p class="error">{{errorMessageRegister}}</p>
         {{/if}}
     </form>
   </div>
@@ -36,9 +44,6 @@
     <form action="/register" method="GET">
       <button class="secondary-button" type="submit">Not registered yet?</button>
 
-      {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-      {{/if}}
     </form>
      </div>
   </div>

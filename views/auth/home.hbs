@@ -6,14 +6,30 @@
 
 
 <form action="/search" method="POST" class="form" id="search">
-  <input type="text" id="locationInput" placeholder="Enter location" name="searchLocation" >
+      <select class="form-select" id="locationInput" name="searchLocation">
+          <option>select country</option>    
+          <option>Germany</option>
+          <option>France</option>
+          <option>Portugal</option>
+          <option>Mexico</option>
+          <option>Brazil</option>
+          <option>Netherlands</option>
+          <option>Spain</option>
+          <option>United Kingdom</option>
+          <option>United States</option>
+          <option>Remote</option>
+      </select>
+
   <button type="submit">Search</button>
 </form>
 
-
+     {{#if errorMessageNoPosts}}
+         <p class="error">{{errorMessageNoPosts}}</p>
+     {{/if}}
 
 {{#each activePosts}}
-    
+
+
     <p>Location: {{location}}</p>
     <p>Position: {{position}}</p>
     <p>Company: {{company}}</p>

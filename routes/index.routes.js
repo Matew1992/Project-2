@@ -16,26 +16,48 @@ router.get("/register", (req, res, next) => {
 });
 
 router.post("/register", async (req, res,) => {
-  console.log(req.body);
+  // const salt = await bcryptjs.genSalt(12);
+  // const hash = await bcryptjs.hash(req.body.password, salt);
 
-  const salt = await bcryptjs.genSalt(12);
-  const hash = await bcryptjs.hash(req.body.password, salt);
-//  const user = new User({ email: req.body.email, password: hash });
-  const user = new User({ 
+  // const user = new User({ 
+  //     email: req.body.email, 
+  //     password: hash, 
+  //   });
+  // await user.save();
+
+  // res.render("auth/profile");
+  // console.log(hash);
+  // console.log(user);
+
+
+
+
+  try {
+    const salt = await bcryptjs.genSalt(12);
+    const hash = await bcryptjs.hash(req.body.password, salt);
+
+
+    const user = await User({
       email: req.body.email, 
       password: hash, 
-      // name: req.body.name,     
-      // location: req.body.location, 
-      // company: req.body.company, 
-      // hiring: req.body.hiring,
-      // position: req.body.position
     });
-  await user.save();
-  // change this to be redicted somewhere instead of this message 
-  // res.send("signed up");
-  res.render("auth/profile");
-  console.log(hash);
-  console.log(user);
+    await user.save();
+    res.render("auth/profile");
+    // res.redirect("/userProfile");
+  } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.status(500).render('index', { errorMessageRegister: error.message });
+    } else if (error.code === 11000) {
+      res.status(500).render('index', {
+        errorMessageRegister: 'The email is already used - want to log in?'
+      });
+    } else {
+      next(error);
+    }
+  }
+  
+
+
 });
 
 module.exports = router;

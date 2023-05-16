@@ -19,14 +19,14 @@ router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.render("index", { error: "user non-exist" });
+      return res.render("index", { errorMessageEmail: "We cannot find the email." });
     }
     const passwordMatch = await bcryptjs.compare(
       req.body.password,
       user.password
     );
     if (!passwordMatch) {
-      return res.render("index", { error: "password is incorrect" });
+      return res.render("index", { errorMessagePw: "Password is incorrect." });
     }
 
     // console.log(req.session);
@@ -71,9 +71,6 @@ router.get("/post", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
-
-
-
   const userId = req.session.user.id;
   const foundUser = await User.findById(userId).populate();
   res.render('auth/profile', { foundUser });  
@@ -111,15 +108,16 @@ router.get("/logout", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/search", isLoggedIn, async (req, res, next) => {
-  //const searchLocation = req.body.searchLocation;
-  //console.log(searchLocation);
   try {
     const activePosts = await User.find({ location: req.body.searchLocation });
-    res.render("auth/home", { activePosts });
-    // res.json(searchedPosts);
+    if (activePosts.length===0){
+      // console.log("Hiii");
+      res.render("auth/home", { activePosts, errorMessageNoPosts: "No jobs here yet :(" });
+    } else{res.render("auth/home", { activePosts });}
+    
   } 
-  catch (error) {
-    res.status(500).json({ error: 'An error occurred while searching for posts' });
+  catch (errorMessage) {
+    res.status(500).json({ errorMessage: 'An error occurred while searching for posts' });
   }
 
 });
