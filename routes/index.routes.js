@@ -16,27 +16,9 @@ router.get("/register", (req, res, next) => {
 });
 
 router.post("/register", async (req, res,) => {
-  // const salt = await bcryptjs.genSalt(12);
-  // const hash = await bcryptjs.hash(req.body.password, salt);
-
-  // const user = new User({ 
-  //     email: req.body.email, 
-  //     password: hash, 
-  //   });
-  // await user.save();
-
-  // res.render("auth/profile");
-  // console.log(hash);
-  // console.log(user);
-
-
-
-
   try {
     const salt = await bcryptjs.genSalt(12);
     const hash = await bcryptjs.hash(req.body.password, salt);
-
-
     const user = await User({
       email: req.body.email, 
       password: hash, 
@@ -55,9 +37,6 @@ router.post("/register", async (req, res,) => {
       next(error);
     }
   }
-  
-
-
 });
 
 module.exports = router;

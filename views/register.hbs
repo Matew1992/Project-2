@@ -1,19 +1,31 @@
-  <h2>Register</h2>
+  <div class="register-top-div">
+        <h1>{{appTitle}} </h1>
+        <h2>Register</h2>
+  </div>
+  
+  <div class="register-mid-div">
+    <div class="index-inner-divs">
+        <form action="/register" method="POST">
+        <label  class="indexlabels"> Email
+        <br>
+        <input class="indexinputs" type="email" name="email" placeholder="email@gmail.com" />
+        </label>
+    </div>
 
-  <form action="/register" method="POST">
+    <div class="index-inner-divs">
+        <label  class="indexlabels">Password
+        <br>
+        <input class="indexinputs" type="password" name="password" placeholder="********" />
+        </label>
+    </div>
+   
+     <div class="index-inner-divs">
+        <button class="primary-button" type="submit">Register</button>
 
-    <label> Email
-      <input type="email" name="email" placeholder="email@gmail.com" />
-    </label>
+        {{#if errorMessage}}
+          <p class="error">{{errorMessage}}</p>
+        {{/if}}
+        </form>
+      </div>
 
-    <label>Password
-      <input type="password" name="password" placeholder="********" />
-    </label>
-
-    <button type="submit">Register</button>
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
+  </div>

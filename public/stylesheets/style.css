@@ -69,22 +69,20 @@ h1 {
   border: none;
 }
 
-.connect-div{
+.index-top-div{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 7%;
 }
 
-.loginregisterdiv{
+.index-mid-div{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
-.indexdivs{
+.index-inner-divs{
   padding: 6px;
 }
 
@@ -100,3 +98,97 @@ h1 {
   margin-bottom: 2px;
 }
 
+.register-top-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7%;
+}
+
+.register-mid-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3%;
+}
+
+.profile-top-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.profile-mid-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3%;
+}
+
+.profile-form{
+  padding: 6px;
+}
+
+.profile-inputs{
+  width: 380px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  /* border-bottom: 1px solid lightgrey;  */
+}
+
+.profile-labels{
+  font-size: 12px;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+/* .toggler-wrapper {
+	display: block;
+	width: 45px;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+}
+
+.toggler-wrapper input[type="checkbox"] {
+	display: none;
+}
+
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+	background-color: #44cc66;
+}
+
+.toggler-wrapper .toggler-slider {
+	background-color: #ccc;
+	position: absolute;
+	border-radius: 100px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.toggler-wrapper .toggler-knob {
+	position: absolute;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+/*Style 1*/
+
+/* .toggler-wrapper.style-1 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+	left: calc(100% - 19px - 3px);
+}
+
+.toggler-wrapper.style-1 .toggler-knob {
+	width: calc(25px - 6px);
+	height: calc(25px - 6px);
+	border-radius: 50%;
+	left: 3px;
+	top: 3px;
+	background-color: #fff;
+} */ 

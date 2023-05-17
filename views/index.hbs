@@ -1,56 +1,47 @@
-
-
-<div class="connect-div">
+<div class="index-top-div">
   <h1>{{appTitle}} </h1>
   <h3>Connect with other successful Ironhack graduates who landed jobs and gain valuable referrals for your career
     journey. </h3>
   <p>Graduate, Connect, Get (Iron)Hired.</p>
 </div>
 
-<div>
-  <div class="loginregisterdiv">
-    <form action="/login" method="POST">
-      <div class="indexdivs">
+<div class="index-mid-div">
+    
+      <div class="index-inner-divs">
+        <form action="/login" method="POST">
         <label class="indexlabels">Email
           <br>
           <input class="indexinputs" type="email" name="email" placeholder="Enter your email" />
         </label>
       </div>
 
-      <div class="indexdivs">
+      <div class="index-inner-divs">
         <label class="indexlabels">Password
           <br>
           <input class="indexinputs" type="password" name="password" placeholder="Enter your password" />
         </label>
       </div>
 
-      <div class="indexdivs">
+      <div class="index-inner-divs">
         <button class="primary-button" type="submit">Log In</button>
+            {{#if errorMessageEmail}}
+            <p class="error">{{errorMessageEmail}}</p>
+            {{/if}}
 
-        {{#if errorMessageEmail}}
-         <p class="error">{{errorMessageEmail}}</p>
-        {{/if}}
+            {{#if errorMessagePw}}
+            <p class="error">{{errorMessagePw}}</p>
+            {{/if}}
 
-         {{#if errorMessagePw}}
-         <p class="error">{{errorMessagePw}}</p>
-        {{/if}}
+            {{#if errorMessageRegister}}
+            <p class="error">{{errorMessageRegister}}</p>
+            {{/if}}
+        </form>
+      </div>
 
-        {{#if errorMessageRegister}}
-         <p class="error">{{errorMessageRegister}}</p>
-        {{/if}}
+      <div class="index-inner-divs">
+          <form action="/register" method="GET">
+            <button class="secondary-button" type="submit">Not registered yet?</button>
+          </form>
+      </div>
 
-
-    </form>
-  </div>
-
-  <div class="indexdivs">
-    <form action="/register" method="GET">
-      <button class="secondary-button" type="submit">Not registered yet?</button>
-
-    </form>
-     </div>
-  </div>
 </div>
-
-
-

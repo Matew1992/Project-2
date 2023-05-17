@@ -1,23 +1,26 @@
-{{!-- <h1>{{appTitle}}</h1> --}}
+<div class="profile-top-div">
+  <h1>{{appTitle}}</h1>
+  <h3>Welcome to your profile, Ironhacker</h2>
+</div>
 
-<p>Welcome to your profile</p>
+<div class="profile-mid-div">
+    <form action="/profile" method="POST" class="form">
 
-<div>
-  <form action="/profile" method="POST" class="form">
-
-    <div class="form-class">
-      <label for="Name">Your name: </label>
-      <input type="text" name="Name" id="Name" value="{{foundUser.name}}" />
+    <div class="profile-form">
+      <label class="profile-labels" for="Name">What is your name? </label>
+      <br>
+      <input class="profile-inputs" type="text" name="Name" id="Name" value="{{foundUser.name}}" />
     </div>
 
-    <div class="form-class">
-      <label for="Company">Name of the company who hired you</label>
-      <input type="Company" name="Company" id="Company" value="{{foundUser.company}}" />
+    <div class="profile-form">
+      <label  class="profile-labels" for="Company">What is the company who hired you?</label>
+      <br>
+      <input  class="profile-inputs" type="Company" name="Company" id="Company" value="{{foundUser.company}}" />
     </div>
 
-    <div class="form-class">
-      <label for="Location">Where's the company based?</label>
-
+    <div class="profile-form">
+      <label  class="profile-labels" for="Location">Where's your company based?</label>
+      <br>
       <select class="form-select" id="Location" name="Location">
           <option>select country</option>    
           <option>Germany</option>
@@ -31,35 +34,46 @@
           <option>United States</option>
           <option>Remote</option>
       </select>
-
-     
     </div>
 
-    <div class="form-class">
-      <label for="Hiring">Is your company hiring other junior developers?</label>
-      {{!-- <input type="checkbox" name="Hiring" id="Hiring"  value="{{foundUser.hiring}}" /> --}}
+<!-- Old styling of checkbox -->
+    <div class="profile-form">
+      <label class="profile-labels" for="Hiring">Is your company hiring other juniors?</label>
+      <br>
       <input type="checkbox" name="UserHiring" id="UserHiring" value="on" {{#if foundUser.hiring}}checked{{/if}}>
-
     </div>
 
-    <div class="form-class">
-      <label for="Position">What's the open role called?</label>
-      <input type="Position" name="Position" id="Position" value="{{foundUser.position}}" />
+
+  <!-- Toggle Button Style - not functional -->
+        {{!-- <label class="profile-labels"  for="Hiring">Is your company hiring other juniors?</label> --}}
+        {{!-- <label class="toggler-wrapper style-1"> 
+          <input name="UserHiring" id="UserHiring" value="on" type="checkbox" {{#if foundUser.hiring}}checked{{/if}}>
+          <div class="toggler-slider">
+            <div class="toggler-knob"></div>
+          </div>
+        </label> --}}
+
+
+    <div class="profile-form">
+      <label  class="profile-labels" for="Position">What is the name of the open role?</label>
+      <br>
+      <input  class="profile-inputs" type="Position" name="Position" id="Position" value="{{foundUser.position}}" />
     </div>
 
-    <div class="form-class">
-      <p>Are you jobless?
-        <a class="active" href="/home">Checkout where other Ironhackers were hired</a>
+    <div class="profile-form">
+      <p>Still jobless?
+        <a class="active" href="/home">See where other Ironhackers found their place</a>
       </p>
     </div>
 
-     <button type="submit">submit</button>
-
-  </form>
+    <div class="profile-form">
+        <button class="primary-button" type="submit">Submit</button>
+        </form>
+    </div>
 </div>
 
 <script>
-  // Example of prefilling a checkbox based on the "User hiring" value
+
   const userHiringCheckbox = document.getElementById("UserHiring");
   const userHiringValue = "{{foundUser.hiring}}"; // Replace with the actual value from your data
 
@@ -69,10 +83,28 @@
     userHiringCheckbox.checked = false;
   }
 
+  userHiringCheckbox.addEventListener("change", function() {
+    if (this.checked) {
+      // Checkbox is checked, update the value accordingly
+      userHiringValue = "on";
+    } else {
+      // Checkbox is unchecked, update the value accordingly
+      userHiringValue = "off";
+    }
+  });
+/*
+  const userHiringCheckbox = document.getElementById("UserHiring");
+  const userHiringValue = "{{foundUser.hiring}}"; 
+
+  if (userHiringValue === "on") {
+    userHiringCheckbox.checked = true;
+  } else {
+    userHiringCheckbox.checked = false;
+  }*/
+
 
    // Example of prefilling the dropdown based on the user location
   const userLocation = "{{foundUser.location}}"; // Replace with the actual value from your data or template engine
-
   const locationSelect = document.getElementById("Location");
   for (let i = 0; i < locationSelect.options.length; i++) {
     if (locationSelect.options[i].value === userLocation) {
