@@ -2,21 +2,27 @@
 // fonts: roboto */
 
 body {
-  margin: 0;
+  margin: 60px 0 10px;
   padding: 0;
-  /* padding: 50px; */
+  padding-bottom: 100px;
   font: 14px;
   font-family: "Roboto", sans-serif;
+  overflow-y: auto;
 }
 
 .topnav {
     background-color: #6200EE;
     height: 60px;
     color: white;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     justify-content: center;
+    top: 0;
+      position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999; 
 }
 
 .topnav > a{
@@ -30,8 +36,8 @@ footer {
   background-color: #6200EE;
   height: 60px;
   color: white;
-  overflow: hidden;
-  position: absolute;
+  /* overflow: hidden; */
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -74,6 +80,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding-top: 7%;
+
+  /* width: 50%; */
 }
 
 .index-mid-div{
@@ -192,3 +200,75 @@ h1 {
 	top: 3px;
 	background-color: #fff;
 } */ 
+
+.home-top-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.home-mid-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.home-bottom-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.home-inner-div{
+  display: flex;
+  flex-direction: column;
+  border: solid 1px lightgray;
+  /* border: none; */
+  box-shadow: 2px 2px lightgray;
+  width: 350px;
+  margin: 1%;
+  padding: 1.5%;
+}
+
+.home-inner-div:hover {
+  border-color: #6200EE;
+}
+
+.search-button{
+  background-color: #6200EE;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  width: 120px;
+  height: 35px;
+  box-shadow: 2px 2px lightgray;
+  border: none;
+}
+
+.post-top-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.post-mid-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.post-inner-div{
+  display: flex;
+  flex-direction: column;
+  border: solid 1px lightgray;
+  /* border: none; */
+  box-shadow: 2px 2px lightgray;
+  width: 50%;
+  margin: 1%;
+  padding: 1.5%;
+}

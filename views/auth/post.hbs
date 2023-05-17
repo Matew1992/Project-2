@@ -1,21 +1,25 @@
-<h1>{{appTitle}} </h1>
+<div class="post-top-div">
+    <h1>{{appTitle}} </h1>
+    <p>This is the post details</p>
+</div>
 
-<p>This is the post details</p>
+<div class="post-mid-div">
+    <div class="post-inner-div">
+            {{!-- {{#each onePost}} --}}
+                
+                <p>Location: {{onePost.location}}</p>
+                <p>Position: {{onePost.position}}</p>
+                <p>Company: {{onePost.company}}</p>
+                <p>Is hiring: {{onePost.hiring}}</p>
+            
+                <p>Your details </p>
+                <p>Name: {{onePost.name}}</p>
+                <p>Your contact details: {{onePost.email}}</p>
+                <br>
+                <br>
+                <p><a href="/home">Go back</a> </p>
 
-{{!-- {{#each onePost}} --}}
-    
-    <p>Location: {{onePost.location}}</p>
-    <p>Position: {{onePost.position}}</p>
-    <p>Company: {{onePost.company}}</p>
-    <p>Is hiring: {{onePost.hiring}}</p>
-  
-    <p>Your details </p>
-    <p>Name: {{onePost.name}}</p>
-    <p>Your contact details: {{onePost.email}}</p>
-    <br>
-    <br>
-     <p><a href="/home">Go back</a> </p>
+            {{!-- {{/each}}routes/auth.routes.js --}}
+    </div>
 
-
-
-{{!-- {{/each}}routes/auth.routes.js --}}
+</div>
