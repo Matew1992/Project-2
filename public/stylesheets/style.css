@@ -97,8 +97,8 @@ h1 {
 .indexinputs {
   width: 380px;
   height: 30px;
-  box-shadow: 2px 2px lightgray;
-  background-color: lightgrey;
+  box-shadow: 2px 2px #F0F0F0;
+  background-color: #F0F0F0;
 }
 
 .indexlabels{
@@ -228,8 +228,8 @@ h1 {
   border: solid 1px lightgray;
   /* border: none; */
   box-shadow: 2px 2px lightgray;
-  width: 350px;
-  margin: 1%;
+  width: 390px;
+  margin: 0.5%;
   padding: 1.5%;
 }
 
@@ -268,7 +268,13 @@ h1 {
   border: solid 1px lightgray;
   /* border: none; */
   box-shadow: 2px 2px lightgray;
-  width: 50%;
+  width: 42%;
   margin: 1%;
   padding: 1.5%;
+  padding-left: 40px;
+}
+
+.post-inner-div p {
+  font-size: 14px;
+  line-height: 0.5;
 }

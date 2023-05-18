@@ -36,22 +36,12 @@
       </select>
     </div>
 
-<!-- Old styling of checkbox -->
     <div class="profile-form">
-      <label class="profile-labels" for="Hiring">Is your company hiring other juniors?</label>
+      <label class="profile-labels" for="Hiring">Is your company hiring other junior developers?</label>      
+      <input type="checkbox" name="Hiring" id="Hiring" name="Hiring" {{#if foundUser.hiring}}checked{{/if}}>
+
       <br>
-      <input type="checkbox" name="UserHiring" id="UserHiring" value="on" {{#if foundUser.hiring}}checked{{/if}}>
     </div>
-
-
-  <!-- Toggle Button Style - not functional -->
-        {{!-- <label class="profile-labels"  for="Hiring">Is your company hiring other juniors?</label> --}}
-        {{!-- <label class="toggler-wrapper style-1"> 
-          <input name="UserHiring" id="UserHiring" value="on" type="checkbox" {{#if foundUser.hiring}}checked{{/if}}>
-          <div class="toggler-slider">
-            <div class="toggler-knob"></div>
-          </div>
-        </label> --}}
 
 
     <div class="profile-form">
@@ -73,36 +63,12 @@
 </div>
 
 <script>
-
-  const userHiringCheckbox = document.getElementById("UserHiring");
-  const userHiringValue = "{{foundUser.hiring}}"; // Replace with the actual value from your data
-
-  if (userHiringValue === "on") {
-    userHiringCheckbox.checked = true;
-  } else {
-    userHiringCheckbox.checked = false;
-  }
-
-  userHiringCheckbox.addEventListener("change", function() {
-    if (this.checked) {
-      // Checkbox is checked, update the value accordingly
-      userHiringValue = "on";
-    } else {
-      // Checkbox is unchecked, update the value accordingly
-      userHiringValue = "off";
-    }
-  });
-/*
-  const userHiringCheckbox = document.getElementById("UserHiring");
+  // Example of prefilling a checkbox based on the "User hiring" value
+  const userHiringCheckbox = document.getElementById("Hiring");
   const userHiringValue = "{{foundUser.hiring}}"; 
-
-  if (userHiringValue === "on") {
-    userHiringCheckbox.checked = true;
-  } else {
-    userHiringCheckbox.checked = false;
-  }*/
-
-
+  if (userHiringValue === "on") {userHiringCheckbox.checked = true;
+  } else {userHiringCheckbox.checked = false};
+  
    // Example of prefilling the dropdown based on the user location
   const userLocation = "{{foundUser.location}}"; // Replace with the actual value from your data or template engine
   const locationSelect = document.getElementById("Location");

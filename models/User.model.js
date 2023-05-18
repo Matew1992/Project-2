@@ -35,7 +35,6 @@ const userSchema = new Schema(
     hiring: {
       type: String
     },
-    
     position: {
       type: String
     }

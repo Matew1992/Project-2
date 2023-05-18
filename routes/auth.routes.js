@@ -84,21 +84,19 @@ router.get("/profile", isLoggedOut, (req, res, next) => {
 });
 
 router.post("/profile", isLoggedIn, async (req, res, next) => {
-  //console.log(req.session);
-  console.log(req.body);
+ 
   const onePost = await User.findOneAndUpdate(
     { email: req.session.user.email },
     {
       name: req.body.Name,
       location: req.body.Location,
       company: req.body.Company,
-      hiring: req.body.Hiring,
+      hiring: req.body.Hiring ? 'on' : 'off',
       position: req.body.Position,
     },
     { new: true }
   );
-
-  //console.log("Hi", onePost);
+  console.log(req.body);
   res.render("auth/post", { onePost });
 });
 
@@ -109,9 +107,11 @@ router.get("/logout", isLoggedIn, (req, res, next) => {
 
 router.post("/search", isLoggedIn, async (req, res, next) => {
   try {
-    const activePosts = await User.find({ location: req.body.searchLocation });
+    const activePosts = await User.find({ location: req.body.searchLocation , hiring: "on" });
+
+    
     if (activePosts.length===0){
-      // console.log("Hiii");
+      console.log("activePosts");
       res.render("auth/home", { activePosts, errorMessageNoPosts: "No jobs here yet :(" });
     } else{res.render("auth/home", { activePosts });}
     
