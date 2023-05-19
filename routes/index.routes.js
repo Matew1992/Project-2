@@ -25,7 +25,9 @@ router.post("/register", async (req, res,) => {
     });
     await user.save();
     res.render("auth/profile");
-    // res.redirect("/userProfile");
+   // res.redirect("/auth/profile");
+   // res.redirect("/profile");
+
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
       res.status(500).render('index', { errorMessageRegister: error.message });

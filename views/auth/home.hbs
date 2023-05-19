@@ -32,10 +32,15 @@
 
 {{#each activePosts}}
 <div class="home-inner-div">
-<h4>Location: {{location}}</h4>
-<p>Job title: {{position}}</p>
-<p>Company: {{company}}</p>
-<p><a href="/post/{{_id}}">See more details</a> </p>
+    <ul>
+        
+    <h4>Location: {{location}}</h4>
+    <li>Job title: {{position}}</li>
+    <li>Company: {{company}}</li>
+    <li><a class="more-details" href="/post/{{_id}}">See more details</a></li>
+    
+
+    </ul>
 
 </div>
 {{/each}}
