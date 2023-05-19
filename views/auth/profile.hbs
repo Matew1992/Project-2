@@ -1,12 +1,19 @@
 <div class="profile-top-div">
   <h1>{{appTitle}}</h1>
-  <h3>Welcome to your profile, Ironhacker</h2>
+
 </div>
 
 <div class="profile-mid-div">
-    <form action="/profile" method="POST" class="form">
-
+  <div class="profile-mid-div-wrap">
+    <p class="profile-welcome">Welcome to your profile, Ironhacker</p>
+   <div class="image-container">
+      <img class="profile-pic" src="https://images.unsplash.com/photo-1543652437-15ae836b33e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"> 
+          {{!-- <br> --}}
+   </div>
+    
     <div class="profile-form">
+       
+      <form action="/profile" method="POST" class="form">
       <label class="profile-labels" for="Name">What is your name? </label>
       <br>
       <input class="profile-inputs" type="text" name="Name" id="Name" value="{{foundUser.name}}" />
@@ -37,10 +44,9 @@
     </div>
 
     <div class="profile-form">
-      <label class="profile-labels" for="Hiring">Is your company hiring other junior developers?</label>      
+      <label class="profile-labels" for="Hiring">Is your company hiring other junior developers?</label>  
+      <br>    
       <input type="checkbox" name="Hiring" id="Hiring" name="Hiring" {{#if foundUser.hiring}}checked{{/if}}>
-
-      <br>
     </div>
 
 
@@ -50,15 +56,17 @@
       <input  class="profile-inputs" type="Position" name="Position" id="Position" value="{{foundUser.position}}" />
     </div>
 
-    <div class="profile-form">
-      <p>Still jobless?
-        <a class="active" href="/home">See where other Ironhackers found their place</a>
-      </p>
+    <div class="profile-form-buttons">
+        <button class="primary-button-narrow" type="submit">Submit</button>
+        </form>
     </div>
 
-    <div class="profile-form">
-        <button class="primary-button" type="submit">Submit</button>
-        </form>
+    <div class="profile-form-buttons">
+      <p  class="profile-welcome" >Still jobless? See where other Ironhackers found their place</p>
+        <a class="active" href="/home">
+           <button class="secondary-button-narrow">See all jobs</button></a>
+      
+    </div>
     </div>
 </div>
 

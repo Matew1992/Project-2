@@ -6,7 +6,6 @@ require("dotenv").config();
 require("./db");
 
 
-
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
@@ -17,6 +16,11 @@ const hbs = require("hbs");
 
 const app = express();
 
+// Make everything inside of public/ available
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/images'));
+app.use(express.static(__dirname + '/views'));
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 require('./config/session.config')(app);
@@ -26,8 +30,6 @@ require('./config/session.config')(app);
 const projectName = "IronHired";
 
 app.locals.appTitle = projectName;
-
-// app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
