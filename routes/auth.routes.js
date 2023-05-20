@@ -70,8 +70,8 @@ router.get("/post", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
-  const userId = req.session.user._id;
-  console.log(userId);
+  const userId = req.session.user.id;
+  console.log("this is the profile route",userId,req.session);
   const foundUser = await User.findById(userId).populate();
   res.render('auth/profile', { foundUser });  
 });
