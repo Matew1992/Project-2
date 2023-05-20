@@ -5,7 +5,6 @@ require("dotenv").config();
 // ℹ️ Connects to the database
 require("./db");
 
-
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
@@ -13,7 +12,6 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-
 const app = express();
 
 // Make everything inside of public/ available
@@ -25,8 +23,6 @@ app.use(express.static(__dirname + '/views'));
 require("./config")(app);
 require('./config/session.config')(app);
 
-// default value for title local
-// const capitalize = require("./utils/capitalize");
 const projectName = "IronHired";
 
 app.locals.appTitle = projectName;
@@ -37,7 +33,6 @@ app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
-
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

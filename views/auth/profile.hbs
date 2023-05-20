@@ -8,7 +8,6 @@
     <p class="profile-welcome">Welcome to your profile, Ironhacker</p>
    <div class="image-container">
       <img class="profile-pic" src="https://images.unsplash.com/photo-1543652437-15ae836b33e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"> 
-          {{!-- <br> --}}
    </div>
     
     <div class="profile-form">
@@ -72,7 +71,7 @@
 </div>
 
 <script>
-  // Example of prefilling a checkbox based on the "User hiring" value
+  // Example of prefilling a checkbox based on the "hiring" value
   const userHiringCheckbox = document.getElementById("Hiring");
   const userHiringValue = "{{foundUser.hiring}}"; 
   if (userHiringValue === "on") {userHiringCheckbox.checked = true;

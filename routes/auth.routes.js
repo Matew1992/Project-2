@@ -19,7 +19,9 @@ router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.render("index", { errorMessageEmail: "We cannot find the email." });
+      return res.render("index", {
+        errorMessageEmail: "We cannot find the email.",
+      });
     }
     const passwordMatch = await bcryptjs.compare(
       req.body.password,
@@ -30,7 +32,7 @@ router.post("/login", async (req, res, next) => {
     }
 
     req.session.user = {
-      id: user._id, 
+      id: user._id,
       email: user.email,
     };
 
@@ -71,9 +73,9 @@ router.get("/post", isLoggedOut, (req, res, next) => {
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   const userId = req.session.user.id;
-  console.log("this is the profile route",userId,req.session);
+  console.log("this is the profile route", userId, req.session);
   const foundUser = await User.findById(userId).populate();
-  res.render('auth/profile', { foundUser });  
+  res.render("auth/profile", { foundUser });
 });
 
 router.get("/profile", isLoggedOut, (req, res, next) => {
@@ -81,19 +83,17 @@ router.get("/profile", isLoggedOut, (req, res, next) => {
 });
 
 router.post("/profile", isLoggedIn, async (req, res, next) => {
- 
   const onePost = await User.findOneAndUpdate(
     { email: req.session.user.email },
     {
       name: req.body.Name,
       location: req.body.Location,
       company: req.body.Company,
-      hiring: req.body.Hiring ? 'on' : 'off',
+      hiring: req.body.Hiring ? "on" : "off",
       position: req.body.Position,
     },
     { new: true }
   );
-  // console.log(req.body);
   res.render("auth/post", { onePost });
 });
 
@@ -104,19 +104,24 @@ router.get("/logout", isLoggedIn, (req, res, next) => {
 
 router.post("/search", isLoggedIn, async (req, res, next) => {
   try {
-    const activePosts = await User.find({ location: req.body.searchLocation , hiring: "on" });
-
-    
-    if (activePosts.length===0){
+    const activePosts = await User.find({
+      location: req.body.searchLocation,
+      hiring: "on",
+    });
+    if (activePosts.length === 0) {
       console.log("activePosts");
-      res.render("auth/home", { activePosts, errorMessageNoPosts: "No jobs here yet :(" });
-    } else{res.render("auth/home", { activePosts });}
-    
-  } 
-  catch (errorMessage) {
-    res.status(500).json({ errorMessage: 'An error occurred while searching for posts' });
+      res.render("auth/home", {
+        activePosts,
+        errorMessageNoPosts: "No jobs here yet :(",
+      });
+    } else {
+      res.render("auth/home", { activePosts });
+    }
+  } catch (errorMessage) {
+    res
+      .status(500)
+      .json({ errorMessage: "An error occurred while searching for posts" });
   }
-
 });
 
 module.exports = router;
