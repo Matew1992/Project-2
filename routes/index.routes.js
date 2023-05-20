@@ -19,19 +19,32 @@ router.post("/register", async (req, res,) => {
   try {
     const salt = await bcryptjs.genSalt(12);
     const hash = await bcryptjs.hash(req.body.password, salt);
+    // const user = await User({
+    //   email: req.body.email, 
+    //   password: hash, 
+    // });
+    // await user.save();
+
+
     const user = await User({
       email: req.body.email, 
       password: hash, 
     });
     await user.save();
 
+    await User.findOne({ email: req.body.email });
+    
+    req.session.user = {
+      id: user._id, 
+      email: user.email,
+    };
+   
     // Log in the user immediately after registration
+    
     req.session.user = user;
+    console.log( req.session.user._id );
+   
     res.redirect("/auth/profile");
-
-    // res.render("auth/profile");
-   // res.redirect("/auth/profile");
-   // res.redirect("/profile");
 
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {

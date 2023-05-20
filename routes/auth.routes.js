@@ -29,7 +29,6 @@ router.post("/login", async (req, res, next) => {
       return res.render("index", { errorMessagePw: "Password is incorrect." });
     }
 
-    // console.log(req.session);
     req.session.user = {
       id: user._id, 
       email: user.email,
@@ -71,7 +70,8 @@ router.get("/post", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
-  const userId = req.session.user.id;
+  const userId = req.session.user._id;
+  console.log(userId);
   const foundUser = await User.findById(userId).populate();
   res.render('auth/profile', { foundUser });  
 });
