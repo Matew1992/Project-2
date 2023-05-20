@@ -24,7 +24,12 @@ router.post("/register", async (req, res,) => {
       password: hash, 
     });
     await user.save();
-    res.render("auth/profile");
+
+    // Log in the user immediately after registration
+    req.session.user = user;
+    res.redirect("/auth/profile");
+
+    // res.render("auth/profile");
    // res.redirect("/auth/profile");
    // res.redirect("/profile");
 

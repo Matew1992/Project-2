@@ -1,4 +1,4 @@
-/* // colors purple: #6200EE, turquoise: #00BCD4, dark: #3A2E39, light gray: #F0F0F0
+/* // colors purple: #6200EE, turquoise: #00BCD4, dark: #3A2E39, light gray: #F0F0F0, red: #AC3931
 // fonts: roboto */
 
 body {
@@ -335,4 +335,11 @@ ul {
 
 .post-image{
   width: 100px;
+}
+
+.error{
+  font-weight: bolder;
+  text-align: center;
+  color: #AC3931;
+  
 }

@@ -1,34 +1,33 @@
 <div class="post-top-div">
-    <h1>{{appTitle}} </h1>
-    <p>Find out more about this job listing</p>
+  <h1>{{appTitle}} </h1>
+  <p>Find out more about this job listing</p>
 </div>
 
 <div class="post-mid-div">
-   
-         <div class="post-inner-div">
-            {{!-- {{#each onePost}} --}}
-                
-                
-                <ul>
-                    <h4>Location: {{onePost.location}}</h4>
-                    <li>Position: {{onePost.position}}</li>
-                    <li>Company: {{onePost.company}}</li>
-                    <li>Is hiring: {{onePost.hiring}}</li>
-                    <li>Ironhacker name: {{onePost.name}}</li>
-                    <li>Get in touch: {{onePost.email}}</li>
-                    <br>
-                <li><a  class="more-details" href="/home">Go back</a></li>
-                 
-                </ul>
 
-        <div class="image-div">
-    <img class="post-image" src="https://images.unsplash.com/photo-1523398845774-0d176ba6fd41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"> 
-        </div>
-  
-   
-    
+  <div class="post-inner-div">
+    {{!-- {{#each onePost}} --}}
 
-                {{!-- <p>Position: {{onePost.position}}</p>
+    <ul>
+      <h4>Location: {{onePost.location}}</h4>
+      <li>Position: {{onePost.position}}</li>
+      <li>Company: {{onePost.company}}</li>
+      <li>Is hiring: {{onePost.hiring}}</li>
+      <li>Ironhacker name: {{onePost.name}}</li>
+      <li>Get in touch: {{onePost.email}}</li>
+      <br />
+      <li><a class="more-details" href="/home">See all jobs</a></li>
+
+    </ul>
+
+    <div class="image-div">
+      <img
+        class="post-image"
+        src="https://images.unsplash.com/photo-1523398845774-0d176ba6fd41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+      />
+    </div>
+
+    {{!-- <p>Position: {{onePost.position}}</p>
                 <p>Company: {{onePost.company}}</p>
                 <p>Is hiring: {{onePost.hiring}}</p>
                 <br>
@@ -38,7 +37,7 @@
 
                 {{!-- <p><a href="/home">Go back</a> </p> --}}
 
-            {{!-- {{/each}}routes/auth.routes.js --}}
-    </div>
+    {{!-- {{/each}}routes/auth.routes.js --}}
+  </div>
 
 </div>

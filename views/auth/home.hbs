@@ -1,48 +1,46 @@
-{{!-- <link rel="stylesheet" href=""> --}}
+{{! <link rel="stylesheet" href=""> }}
 
 <div class="home-top-div">
-    <h1>{{appTitle}} </h1>
-    <p>Browse all job recommendations from your fellow Ironhackers</p>
+  <h1>{{appTitle}} </h1>
+  <p>Browse all job recommendations from your fellow Ironhackers</p>
 </div>
 
 <div class="home-mid-div">
-    <form action="/search" method="POST" class="form" id="search">
-        <select class="indexinputs" id="locationInput" name="searchLocation">
-            <option>select country</option>    
-            <option>Germany</option>
-            <option>France</option>
-            <option>Portugal</option>
-            <option>Mexico</option>
-            <option>Brazil</option>
-            <option>Netherlands</option>
-            <option>Spain</option>
-            <option>United Kingdom</option>
-            <option>United States</option>
-            <option>Remote</option>
-        </select>
+  <form action="/search" method="POST" class="form" id="search">
+    <select class="indexinputs" id="locationInput" name="searchLocation">
+      <option>select country</option>
+      <option>Germany</option>
+      <option>France</option>
+      <option>Portugal</option>
+      <option>Mexico</option>
+      <option>Brazil</option>
+      <option>Netherlands</option>
+      <option>Spain</option>
+      <option>United Kingdom</option>
+      <option>United States</option>
+      <option>Remote</option>
+    </select>
 
     <button class="search-button" type="submit">Search</button>
-    </form>
-        {{#if errorMessageNoPosts}}
-            <p class="error">{{errorMessageNoPosts}}</p>
-        {{/if}}
+  </form>
+  {{#if errorMessageNoPosts}}
+    <p class="error">{{errorMessageNoPosts}}</p>
+  {{/if}}
 </div>
 
 <div class="home-bottom-div">
 
-{{#each activePosts}}
-<div class="home-inner-div">
-    <ul>
-        
-    <h4>Location: {{location}}</h4>
-    <li>Job title: {{position}}</li>
-    <li>Company: {{company}}</li>
-    <li><a class="more-details" href="/post/{{_id}}">See more details</a></li>
-    
+  {{#each activePosts}}
+    <div class="home-inner-div">
+      <ul>
 
-    </ul>
+        <h4>Location: {{location}}</h4>
+        <li>Job title: {{position}}</li>
+        <li>Company: {{company}}</li>
+        <li><a class="more-details" href="/post/{{_id}}">See more details</a></li>
 
+      </ul>
+
+    </div>
+  {{/each}}
 </div>
-{{/each}}
-</div>
-
